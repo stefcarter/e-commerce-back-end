@@ -36,7 +36,8 @@ router.get('/:id', async (req, res) => {
   try {
     const dbProductData = await Product.findOne({
       where: {
-        id: req.params.id,
+        id: req.params.id
+      },
         attritubes: [
           'id',
           'product_name',
@@ -54,7 +55,6 @@ router.get('/:id', async (req, res) => {
             attributes: ['id', 'tag_name']
           }
         ]
-      }
     });
     res.status(200).json(dbProductData);
   } catch (err) {
